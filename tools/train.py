@@ -20,6 +20,10 @@ import warnings
 from mmcv import Config, DictAction
 from mmcv.runner import get_dist_info, init_dist
 from os import path as osp
+import pdb
+import sys
+BASE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(BASE_PATH)
 
 from mmdet import __version__ as mmdet_version
 from mmdet3d import __version__ as mmdet3d_version
@@ -147,6 +151,14 @@ def main():
         # use config filename as default work_dir if cfg.work_dir is None
         cfg.work_dir = osp.join('./work_dirs',
                                 osp.splitext(osp.basename(args.config))[0])
+    # import glob
+    # checkpoint_list = glob.glob(os.path.dirname(cfg.resume_from) + '/epoch_*.pth')
+    # epoch_list = [int(os.path.basename(checkpoint_str)[6:-4]) for checkpoint_str in checkpoint_list]
+    # cur_max_epoch = max(epoch_list)
+    # cfg.resume_from = os.path.dirname(cfg.resume_from) + '/epoch_%d.pth'%(cur_max_epoch)
+    # checkpoint_list.sort()
+    # if len(checkpoint_list) > 0:
+    #     cfg.resume_from = checkpoint_list[-1]
     if args.resume_from is not None:
         cfg.resume_from = args.resume_from
     if args.gpu_ids is not None:

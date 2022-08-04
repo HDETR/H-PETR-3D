@@ -39,10 +39,12 @@ model = dict(
         out_channels=256,
         num_outs=2),
     pts_bbox_head=dict(
-        type='PETRv2Head',
+        type='HybridPETRv2Head',
         num_classes=10,
         in_channels=256,
-        num_query=900,
+        num_query=2700,
+        num_queries_one2one=900,
+        k_one2many=4,
         LID=True,
         with_position=True,
         with_multiview=True,
@@ -218,6 +220,7 @@ data = dict(
         box_type_3d='LiDAR'),
     val=dict(type=dataset_type, pipeline=test_pipeline, ann_file=data_root + 'mmdet3d_nuscenes_30f_infos_val.pkl', classes=class_names, modality=input_modality),
     test=dict(type=dataset_type, pipeline=test_pipeline, ann_file=data_root + 'mmdet3d_nuscenes_30f_infos_val.pkl', classes=class_names, modality=input_modality))
+    # test=dict(type=dataset_type, pipeline=test_pipeline, ann_file=data_root + 'mmdet3d_nuscenes_30f_infos_test.pkl', classes=class_names, modality=input_modality))
 
 
 optimizer = dict(
@@ -247,24 +250,3 @@ runner = dict(type='EpochBasedRunner', max_epochs=total_epochs)
 load_from='ckpts/fcos3d_vovnet_imgbackbone-remapped.pth'
 resume_from=None
 
-# mAP: 0.4104
-# mATE: 0.7226
-# mASE: 0.2692
-# mAOE: 0.4529
-# mAVE: 0.3893
-# mAAE: 0.1933
-# NDS: 0.5025
-# Eval time: 206.1s
-
-# Per-class results:
-# Object Class    AP      ATE     ASE     AOE     AVE     AAE
-# car     0.581   0.536   0.149   0.076   0.347   0.190
-# truck   0.371   0.748   0.205   0.093   0.341   0.216
-# bus     0.442   0.703   0.204   0.097   0.758   0.256
-# trailer 0.231   1.031   0.237   0.690   0.270   0.136
-# construction_vehicle    0.129   1.064   0.494   1.175   0.138   0.356
-# pedestrian      0.485   0.676   0.293   0.535   0.443   0.186
-# motorcycle      0.407   0.663   0.255   0.579   0.569   0.190
-# bicycle 0.416   0.605   0.250   0.689   0.248   0.018
-# traffic_cone    0.555   0.545   0.321   nan     nan     nan
-# barrier 0.487   0.655   0.284   0.143   nan     nan

@@ -67,7 +67,7 @@ class PETRTransformer(BaseModule):
         self._is_init = True
 
 
-    def forward(self, x, mask, query_embed, pos_embed, reg_branch=None):
+    def forward(self, x, mask, query_embed, pos_embed, reg_branch=None, decoder_self_attn_mask=None):
         """Forward function for `Transformer`.
         Args:
             x (Tensor): Input query with shape [bs, c, h, w] where
@@ -104,6 +104,7 @@ class PETRTransformer(BaseModule):
             query_pos=query_embed,
             key_padding_mask=mask,
             reg_branch=reg_branch,
+            attn_masks=decoder_self_attn_mask,
             )
         out_dec = out_dec.transpose(1, 2)
         memory = memory.reshape(n, h, w, bs, c).permute(3, 0, 4, 1, 2)

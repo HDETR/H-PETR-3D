@@ -3,6 +3,13 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.ipynb
+amlt/
+mmdetection/
+mmdetection3d/
+data
+ckpts
+work_dirs
+.amltignore
 
 # C extensions
 *.so
