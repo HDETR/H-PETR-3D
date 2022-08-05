@@ -6,11 +6,11 @@
 |:--------:|:---------:|:---------:|:--------:|:--------:|:-------------:|
 | PETRv2   | 24epoch   | 41.00% | 50.30% |[config](projects/configs/petrv2/petrv2_vovnet_gridmask_p4_800x320.py)                                  |[model](https://drive.google.com/file/d/1tv_D8Ahp9tz5n4pFp4a64k-IrUZPu5Im/view?usp=sharing)
 | H-PETRv2 | 24epoch   | 41.93% | 51.23% |[config](projects/configs/petrv2/hybrid_petrv2_vovnet_gridmask_p4_800x320_lambda1_group4_t1800.py)      |[model](https://github.com/HDETR/H-PETR-3D/releases/download/v1.0.0/hybrid_petrv2_vovnet_gridmask_p4_800x320_lambda1_group4_t1800.pth)
-| PETRv2   | 36epoch   | 41.07% | 50.68% |[config](projects/configs/petrv2/petrv2_vovnet_gridmask_p4_800x320_ep36.py)                             |[model](https://github.com/HDETR/H-PETR-3D/releases/download/v1.0.0/petrv2_vovnet_gridmask_p4_800x320_ep36.pth)
+| PETRv2   | 36epoch   | 41.07% | 50.68% |[config](projects/configs/petrv2/petrv2_vvovnet_gridmask_p4_800x320_ep36.py)                             |[model](https://github.com/HDETR/H-PETR-3D/releases/download/v1.0.0/petrv2_vovnet_gridmask_p4_800x320_ep36.pth)
 | H-PETRv2 | 36epoch   | 42.59% | 52.38% |[config](projects/configs/petrv2/hybrid_petrv2_vovnet_gridmask_p4_800x320_lambda1_group4_t1800_ep36.py) |[model](https://github.com/HDETR/H-PETR-3D/releases/download/v1.0.0/hybrid_petrv2_vovnet_gridmask_p4_800x320_lambda1_group4_t1800_ep36.pth)
 
 ## Preparation
-Please refer to [PETRV2](https://github.com/megvii-research/PETR) for environment and dataset preparation.
+Please refer to [PETR](https://github.com/megvii-research/PETR) for environment and dataset preparation.
 
 ## Train
 ```bash
