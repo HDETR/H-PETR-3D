@@ -38,4 +38,11 @@ tools/dist_test.sh projects/configs/petrv2/hybrid_petrv2_vovnet_gridmask_p4_800x
   journal={arXiv preprint arXiv:2207.13080},
   year={2022}
 }
+
+@article{liu2022petrv2,
+  title={PETRv2: A Unified Framework for 3D Perception from Multi-Camera Images},
+  author={Liu, Yingfei and Yan, Junjie and Jia, Fan and Li, Shuailin and Gao, Qi and Wang, Tiancai and Zhang, Xiangyu and Sun, Jian},
+  journal={arXiv preprint arXiv:2206.01256},
+  year={2022}
+}
 ```
